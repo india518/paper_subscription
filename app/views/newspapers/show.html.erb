@@ -6,7 +6,8 @@
 
 <% @newspaper.subscription_plans.each do |plan| %>
 	<ul>
-		<li><%= plan.daily_label %> : <%= number_to_currency(plan.price) %></li>
+		<li><%= plan.name %>: <%= number_to_currency(plan.price) %></li>
+		<small>Frequency: <%= plan.daily_label %></small>
 	</ul>
 <% end %>
 
