@@ -1,8 +1,9 @@
 class SubscriptionPlan < ActiveRecord::Base
   attr_accessible :newspaper_id, :daily, :price, :name
   
-  validates :newspaper_id, :presence => :true
-  belongs_to :newspaper
+  validates :newspaper, :price, :name, :presence => :true
+  validates :daily, :inclusion => {:in => [true, false]}
+  belongs_to :newspaper, :inverse_of => :subscription_plans
   
   def daily?
     daily

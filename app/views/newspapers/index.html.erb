@@ -1,0 +1,10 @@
+<h1>Here are all our Newspapers!</h1>
+
+<ul>
+  <% @newspapers.each do |paper| %>
+  <li><%= link_to paper.title, newspaper_url(paper) %><br /> 
+	  <small>Editor: <%= paper.editor_fullname %></small></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a Newspaper", new_newspaper_url %>

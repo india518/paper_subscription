@@ -1,7 +1,12 @@
 class NewspapersController < ApplicationController
   
+  def index
+    @newspapers = Newspaper.all
+  end
+  
   def new
     @newspaper = Newspaper.new
+    2.times { @newspaper.subscription_plans.build }
   end
   
   def create
@@ -9,6 +14,7 @@ class NewspapersController < ApplicationController
     if @newspaper.save
       redirect_to newspaper_url(@newspaper)
     else
+      flash[:errors] = @newspaper.errors.full_messages
       render :new
     end
   end

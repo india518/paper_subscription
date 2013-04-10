@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<%= flash.now[:errors] %>
 <%= yield %>
-
+<%#= params.inspect %>
 </body>
 </html>

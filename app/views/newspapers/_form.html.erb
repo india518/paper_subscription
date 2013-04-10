@@ -1,10 +1,8 @@
 <%= form_for(@newspaper) do |f| %>
-
 	<p>
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 	</p>
-
 	<p>Editor
 	<br />
 	<%= f.label :editor_fname, "First Name:" %>
@@ -13,6 +11,31 @@
 	<%= f.label :editor_lname, "Last Name:" %>
 	<%= f.text_field :editor_lname %>
 	</p>
-	<%= f.submit %>
+	
+	<hr />
+	<h2>Subscription Plans:</h2>
+	<%= f.fields_for (:subscription_plans) do |plan| %>
+	
+		<%= plan.hidden_field :newspaper_id, :value => @newspaper.id %>
+
+		<p><%= plan.label :name, "Plan name: "%>
+			<%= plan.text_field :name %>
+		</p>
+
+		<p>Delivery Frequency:<br />
+			  <%= plan.radio_button :daily, "true" %>
+			  <%= plan.label :daily, "Daily", :value => true %>
+			  <br />
+			  <%= plan.radio_button :daily, "false" %>
+			  <%= plan.label :daily, "Weekly", :value => false %>
+		</p>
+
+		<p>Enter Subscription Price:
+		   <%= plan.text_field :price %>
+	   </p>
+	   <hr />
+	<% end %>
+	
+	<p><%= f.submit %></p>
 
 <% end %>

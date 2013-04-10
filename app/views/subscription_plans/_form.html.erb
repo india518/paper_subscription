@@ -2,7 +2,7 @@
 
 <%= f.hidden_field :newspaper_id, :value => @newspaper.id %>
 
-<p>Name of Subscription Plan:
+<p><%= f.label :name, "Plan name:" %>
 	<%= f.text_field :name %>
 </p>
 
