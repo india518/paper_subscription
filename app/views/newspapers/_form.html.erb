@@ -1,0 +1,18 @@
+<%= form_for(@newspaper) do |f| %>
+
+	<p>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	</p>
+
+	<p>Editor
+	<br />
+	<%= f.label :editor_fname, "First Name:" %>
+	<%= f.text_field :editor_fname %>
+	<br />
+	<%= f.label :editor_lname, "Last Name:" %>
+	<%= f.text_field :editor_lname %>
+	</p>
+	<%= f.submit %>
+
+<% end %>

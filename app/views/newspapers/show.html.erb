@@ -1,0 +1,14 @@
+<h2>Information about <%= @newspaper.title %></h2>
+
+<p>Editor: <%= @newspaper.editor_fullname %></p>
+
+<h3>Current Subscription Plans</h3>
+
+<% @newspaper.subscription_plans.each do |plan| %>
+	<ul>
+		<li><%= plan.daily_label %> : <%= number_to_currency(plan.price) %></li>
+	</ul>
+<% end %>
+
+<%= link_to "Add a subscription plan",
+            new_newspaper_subscription_plan_url(@newspaper) %>

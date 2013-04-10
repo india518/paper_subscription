@@ -1,0 +1,22 @@
+<%= form_for(@subscription) do |f| %>
+
+<%= f.hidden_field :newspaper_id, :value => @newspaper.id %>
+
+<p>Name of Subscription Plan:
+	<%= f.text_field :name %>
+</p>
+
+<p>Delivery Frequency</p>
+	  <%= f.radio_button :daily, "true" %>
+	  <%= f.label :daily, "Daily", :value => "true" %>
+	  <br />
+	  <%= f.radio_button :daily, "false" %>
+	  <%= f.label :daily, "Weekly", :value => "false" %>
+</p>
+
+<p>Enter Subscription Price:
+   <%= f.text_field :price %></p>
+
+  <%= f.submit %>
+
+<% end %>
