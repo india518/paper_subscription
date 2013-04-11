@@ -28,6 +28,8 @@
 	  <label for="user[subscription_plan_ids][]"><%= paper.title %></label>
 	  <select name="user[subscription_plan_ids][]"
 	            id="user[subscription_plan_ids][]">
+	  <!-- Adding a blank/none option for each paper -->
+	  <option value="" style="display:none;"></option>
 	  <% paper.subscription_plans.each do |sp| %>
 	  
 	    <option value= <%= sp.id %> ><%= sp.name %>, <%= number_to_currency(sp.price) %></option>
@@ -40,22 +42,3 @@
 	<p><%= f.submit %></p>
 
 <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
