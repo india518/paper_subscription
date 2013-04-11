@@ -1,0 +1,25 @@
+<h2>New User Information</h2>
+
+<%= form_for(@user) do |f| %>
+	<p>
+	<%= f.label :name %><br />
+	<%= f.text_field :name %>
+	<p/>
+	
+	<p>Select your subscriptions!</p>
+	<% SubscriptionPlan.all.each do |plan| %>
+		<%= check_box_tag( 
+		"user[subscription_plan_ids][]",
+		plan.id,
+		@user.subscription_plans.include?(plan.id),
+		:id => "user_subscription_plan_ids_#{plan.id}"
+		) %>
+		<%= label_tag "user_subscription_plan_ids_#{plan.id}",
+		              "#{plan.newspaper.title}, #{plan.name}" %>
+		<br />
+	<% end %>
+	<%= hidden_field_tag "user[subscription_plan_ids][]" << "" %>
+
+	<p><%= f.submit %></p>
+
+<% end %>

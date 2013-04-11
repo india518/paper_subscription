@@ -4,5 +4,7 @@ NewspaperApp::Application.routes.draw do
  end
  
  resources :subscription_plans, :except => [:new]
+ 
+ resources :users
 
 end

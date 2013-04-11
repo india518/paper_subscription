@@ -1,0 +1,9 @@
+<h2>Information for <%= @user.name %>!</h2>
+
+<p><%= @user.name %>'s subscriptions:</p>
+<ul>
+	<% @user.subscription_plans.each do |plan| %>
+	<li> <%= link_to plan.newspaper.title, newspaper_url(plan.newspaper) %>: 
+		 <%= plan.name %>, <%=number_to_currency(plan.price) %></li>
+	<% end %>
+</ul>

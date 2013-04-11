@@ -1,0 +1,9 @@
+<h2>All The Users!</h2>
+
+<% User.all.each do |user| %>
+	<ul>
+		<li><%= link_to user.name, user_url(user) %></li>
+	</ul>
+<% end %>
+
+<%= link_to "Add a New User!", new_user_url %>
