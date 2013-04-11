@@ -5,10 +5,12 @@
 	<%= f.label :name %><br />
 	<%= f.text_field :name %>
 	<p/>
-	
+	<%= f.label :password %><br />
+	<%= f.password_field :password %>
+	<p/>
 	<p>Select your subscriptions!</p>
 	
-	<!-- Checkboxes from Pahse IV -->
+	<!-- Checkboxes from Phase III -->
 	<!-- <% SubscriptionPlan.all.each do |plan| %>
 		<%#= check_box_tag( 
 		"user[subscription_plan_ids][]",

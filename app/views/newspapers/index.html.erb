@@ -8,3 +8,9 @@
 </ul>
 
 <%= link_to "Add a Newspaper", new_newspaper_url %>
+
+<% if logged_in? %>
+  <%= link_to "Log Out", session_url(session), :method => :delete %>
+<% else %>
+  <%= link_to "Log In", new_session_url %>
+<% end %>

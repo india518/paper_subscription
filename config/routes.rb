@@ -6,5 +6,9 @@ NewspaperApp::Application.routes.draw do
  resources :subscription_plans, :except => [:new]
  
  resources :users
+ 
+ resources :sessions
+ 
+ root to: 'newspapers#index'
 
 end
