@@ -14,6 +14,7 @@ class NewspapersController < ApplicationController
     if @newspaper.save
       redirect_to newspaper_url(@newspaper)
     else
+      # REV: Good to have the flash warning
       flash[:errors] = @newspaper.errors.full_messages
       render :new
     end

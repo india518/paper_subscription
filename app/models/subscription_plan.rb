@@ -6,7 +6,7 @@ class SubscriptionPlan < ActiveRecord::Base
   belongs_to :newspaper, :inverse_of => :subscription_plans
   has_many :subscriptions
   has_many :users, :through => :subscriptions
-  
+  # REV: Nice that you added these helper methods
   def daily?
     daily
   end

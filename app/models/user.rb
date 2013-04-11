@@ -1,3 +1,4 @@
+# REV: Everything seems right in these models - using the annotate gem can still be helpful
 class User < ActiveRecord::Base
   attr_accessible :name, :subscription_plan_ids
   
