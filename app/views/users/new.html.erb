@@ -7,19 +7,55 @@
 	<p/>
 	
 	<p>Select your subscriptions!</p>
-	<% SubscriptionPlan.all.each do |plan| %>
-		<%= check_box_tag( 
+	
+	<!-- Checkboxes from Pahse IV -->
+	<!-- <% SubscriptionPlan.all.each do |plan| %>
+		<%#= check_box_tag( 
 		"user[subscription_plan_ids][]",
 		plan.id,
 		@user.subscription_plans.include?(plan.id),
 		:id => "user_subscription_plan_ids_#{plan.id}"
 		) %>
-		<%= label_tag "user_subscription_plan_ids_#{plan.id}",
+		<%#= label_tag "user_subscription_plan_ids_#{plan.id}",
 		              "#{plan.newspaper.title}, #{plan.name}" %>
 		<br />
 	<% end %>
-	<%= hidden_field_tag "user[subscription_plan_ids][]" << "" %>
+	<%= hidden_field_tag "user[subscription_plan_ids][]" << "" %> -->
+
+	<!-- Phase 5 Start! -->
+	<% Newspaper.all.each do |paper| %>
+	  <!-- One select box for each paper -->
+	  <label for="user[subscription_plan_ids][]"><%= paper.title %></label>
+	  <select name="user[subscription_plan_ids][]"
+	            id="user[subscription_plan_ids][]">
+	  <% paper.subscription_plans.each do |sp| %>
+	  
+	    <option value= <%= sp.id %> ><%= sp.name %>, <%= number_to_currency(sp.price) %></option>
+		
+	  <% end %>
+	  </select>
+	  <br />
+	  <% end %>
 
 	<p><%= f.submit %></p>
 
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
